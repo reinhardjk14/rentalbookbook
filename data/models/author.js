@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Author.hasMany(models.Book)
     }
+
+    get fullName() {
+      return `${this.first_name} ${this.last_name}`
+    }
   }
   Author.init({
     first_name: DataTypes.STRING,
