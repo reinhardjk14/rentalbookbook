@@ -1,0 +1,152 @@
+[
+  {
+      "title": "Harry Potter and The Philosopher's Stone",
+      "genre": "Fiction",
+      "released_year": 1997,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Chamber of Secrets",
+      "genre": "Fiction",
+      "released_year": 1998,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Prisoner of Azkaban",
+      "genre": "Fiction",
+      "released_year": 1999,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Goblet of Fire",
+      "genre": "Fiction",
+      "released_year": 2000,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Order of the Phoenix",
+      "genre": "Fiction",
+      "released_year": 2003,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Half Blood Prince",
+      "genre": "Fiction",
+      "released_year": 2005,
+      "AuthorId": 1
+  },
+  {
+      "title": "Harry Potter and The Deathly Hallows",
+      "genre": "Fiction",
+      "released_year": 2007,
+      "AuthorId": 1
+  },
+  {
+      "title": "IT",
+      "genre": "Thriller",
+      "released_year": 1986,
+      "AuthorId": 2
+  },
+  {
+      "title": "The Stand",
+      "genre": "Horror",
+      "released_year": 1978,
+      "AuthorId": 2
+  },
+  {
+      "title": "The Shining",
+      "genre": "Horror",
+      "released_year": 1977,
+      "AuthorId": 2
+  },
+  {
+      "title": "Da Vinci Code",
+      "genre": "Mystery",
+      "released_year": 2003,
+      "AuthorId": 3
+  },
+  {
+      "title": "Angels and Demons",
+      "genre": "Mystery",
+      "released_year": 2000,
+      "AuthorId": 3
+  },
+  {
+      "title": "The Lost Symbol",
+      "genre": "Fiction",
+      "released_year": 2009,
+      "AuthorId": 3
+  },
+  {
+      "title": "The Old Man and The Sea",
+      "genre": "Fiction",
+      "released_year": 1952,
+      "AuthorId": 4
+  },
+  {
+      "title": "The Sun Also Rises",
+      "genre": "Fiction",
+      "released_year": 1926,
+      "AuthorId": 4
+  },
+  {
+      "title": "For Whom The Bell Tolls",
+      "genre": "Fiction",
+      "released_year": 1940,
+      "AuthorId": 4
+  },
+  {
+      "title": "Murder on the Orient Express",
+      "genre": "Mystery",
+      "released_year": 1934,
+      "AuthorId": 5
+  },
+  {
+      "title": "The Murder of Roger Ackroyd",
+      "genre": "Mystery",
+      "released_year": 1926,
+      "AuthorId": 5
+  },
+  {
+      "title": "The A.B.C. Murders",
+      "genre": "Mystery",
+      "released_year": 1936,
+      "AuthorId": 5
+  },
+  {
+      "title": "The President Is Missing",
+      "genre": "Crime",
+      "released_year": 2018,
+      "AuthorId": 6
+  },
+  {
+      "title": "1st to Die",
+      "genre": "Crime",
+      "released_year": 2001,
+      "AuthorId": 6
+  },
+  {
+      "title": "Without Remorse",
+      "genre": "Thriller",
+      "released_year": 1993,
+      "AuthorId": 7
+  },
+  {
+      "title": "Red Storm Rising",
+      "genre": "Thriller",
+      "released_year": 1986,
+      "AuthorId": 7
+  },
+  {
+      "title": "The Sum of All Fears",
+      "genre": "Thriller",
+      "released_year": 1991,
+      "AuthorId": 7
+  },
+  {
+      "title": "Patriot Games",
+      "genre": "Thriller",
+      "released_year": 1987,
+      "AuthorId": 7
+  }
+]
