@@ -1,8 +1,8 @@
 <div>
-    <form action="/books" >
+    <form action="/<%= pages %>" method="get">
       <div class="input-group">
-        <input type="search" class="form-control" placeholder="search" name="search">
-        <button type="submit" class="btn btn-primary">🔎</button>  
+        <input type="text" class="form-control" placeholder="search" name="search">
+        <button type="submit" class="btn btn-primary" value="search">🔎</button>  
       </div>
     </form>
   </div>

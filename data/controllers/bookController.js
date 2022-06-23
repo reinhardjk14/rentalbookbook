@@ -1,6 +1,6 @@
 "use strict"
 const { Book, Author } = require('../models');
-const { Op } = require('sequelize')
+const { Op, where } = require('sequelize')
 
 class BookController {
   static getAllBook(req, res) {
@@ -10,17 +10,19 @@ class BookController {
       include: Author,
       order: [['status', 'DESC']]
     }
-    console.log(options);
 
-    // if(search) {
-    //   options.where.title = {
-    //     [Op.iLike]: `%${search}%`
-    //   }
-    // }
+    if(search) {
+      options.where = {
+        title: {
+          [Op.iLike]: `%${search}%`
+        }
+      }
+    }
 
     Book.findAll(options)
       .then(result => {
         res.render('listBook', { result })
+        // res.send(result)
       })
       .catch(err => {
         res.send(err)
@@ -61,14 +63,24 @@ class BookController {
   }
 
   static usersBook(req, res) {
-    Book.findAll({
+    const { search } = req.query
+    
+    const options = {
       where: {
         status: {
           [Op.eq]: 'Borrowed!'
         }
       },
       include: Author
-    })
+    }
+
+    if (search) {
+      options.where.title = {
+        [Op.iLike]: `%${search}%`
+      }
+    }
+
+    Book.findAll(options)
     .then(books => {
       res.render('userBooks', { books })
     })

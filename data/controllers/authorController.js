@@ -1,9 +1,27 @@
 "use strict"
 const { Author, Book } = require('../models');
+const { Op } = require('sequelize')
 
 class AuthorController {
   static getAllAuthor(req, res) {
-    Author.findAll()
+    const { search } = req.query
+
+    const options = {}
+
+    if (search) {
+      options.where = {
+        [Op.or]: [
+          {first_name: {
+            [Op.iLike]: `%${search}%`
+          }},
+          {last_name: {
+            [Op.iLike]: `%${search}%`
+          }}
+        ]
+      }
+    }
+
+    Author.findAll(options)
       .then(result => {
         res.render('listAuthor', { result })
         // res.send(result)
@@ -15,7 +33,7 @@ class AuthorController {
 
   static authorBook(req, res) {
     const id = req.params.authorId
-
+    
     Author.findByPk(+id, {
       include: Book
     }) 
