@@ -1,4 +1,7 @@
 'use strict';
+
+const { Op } = require('sequelize');
+
 const {
   Model
 } = require('sequelize');
@@ -15,6 +18,22 @@ module.exports = (sequelize, DataTypes) => {
       Book.belongsToMany(models.User, {
         through: models.UserBook
       })
+    }
+
+    static showAllBooks(Author, search) {
+      let options = {
+        include: Author,
+        order: [['released_year', 'DESC']]
+      }
+      if (search) {
+        options.where = {
+          ...options.where,
+          title: {
+            [Op.iLike]: `%${search}%`
+          }
+        }
+      }
+      return this.findAll(options)
     }
   }
   Book.init({

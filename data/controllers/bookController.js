@@ -3,10 +3,8 @@ const { Book, Author } = require('../models');
 
 class BookController {
   static getAllBook(req, res) {
-    Book.findAll({
-      include: Author,
-      order: [['released_year', 'DESC']]
-    })
+    let search = req.query.search
+    Book.showAllBooks(Author, search)
       .then(result => {
         res.render('listBook', { result })
       })
