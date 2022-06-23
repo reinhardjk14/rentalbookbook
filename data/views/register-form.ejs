@@ -23,10 +23,14 @@
     <br>
     <div>
       <label for="">ROLE</label><br>
-      <input type="text" name="role">
+      <select name="role" id="">
+        <option value="admin">admin</option>
+        <option value="regular">regular </option>
+      </select>
     </div>
     <br>
     <button type="submit">REGISTER</button>
   </form>
+  <%- include('partial/errors.ejs') %> 
 </body>
 </html>

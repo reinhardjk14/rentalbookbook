@@ -15,9 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Book.belongsTo(models.Author)
-      Book.belongsToMany(models.User, {
-        through: models.UserBook
-      })
     }
 
     static showAllBooks(Author, search) {

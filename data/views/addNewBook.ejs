@@ -7,18 +7,18 @@
   <title>RentalBookBook</title>
 </head>
 <body>
-  <a href="/books">Cancel</a>
+  <a href="/authors">Back</a>
   <h1>Add New Book</h1>
-  <form action="" method="post">
+  <form action="/authors/addBook" method="post">
     <div>
-      <label for="">TITLE</label><br>
+      <label for="">Title</label><br>
       <input type="text" name="title">
     </div>
     <br>
     <div>
-      <label for="">AUTHOR</label><br>
+      <label for="">Author</label><br>
       <select name="AuthorId" id="">
-        <option value="" disabled selected>--SELECT ONE--</option>
+        <option value="" disabled selected>--SELECT AUTHOR--</option>
         <% result.forEach((el) => { %>
           <option value="<%= el.id %> "><%= el.fullName %> </option>
         <% }) %> 
@@ -26,25 +26,17 @@
     </div>
     <br>
     <div>
-      <label for="">GENRE</label><br>
+      <label for="">Genre</label><br>
       <input type="text" name="genre">
     </div>
     <br>
     <div>
-      <label for="">RELEASE YEAR</label><br>
+      <label for="">Release Year</label><br>
       <input type="text" name="released_year">
     </div>
     <br>
-    <!-- <div>
-      <label for="">STATUS</label><br>
-      <select name="status" id="">
-        <option value="" disabled selected>--SELECT ONE--</option>
-        <option value="available">available</option>
-        <option value="not available">not available</option>
-      </select>
-    </div> -->
-    <br>
-    <button type="submit">Submit</button>
+    <button type="submit">Add Book</button>
   </form>
+  <%- include('partial/errors.ejs') %> 
 </body>
 </html>

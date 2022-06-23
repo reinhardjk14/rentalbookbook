@@ -14,15 +14,45 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsToMany(models.Book, {
-        through: models.UserBook
-      })
+      User.hasOne(models.Profile)
     }
   }
   User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+         notNull: {
+          msg: 'Email tidak boleh kosong!'
+         },
+         notEmpty: {
+          msg: 'Silahkan masukkan email!'
+         }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Password tidak boleh kosong'
+        },
+        notEmpty: {
+          msg: 'Silahkan masukkan password'
+        }
+      }
+    }, 
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'user',
+      validate: {
+        notNull: 'Role tidak boleh kosong!'
+      },
+      notEmpty: {
+        msg: 'Silahkan masukkan role!'
+      }
+    } 
   }, {
     sequelize,
     modelName: 'User',

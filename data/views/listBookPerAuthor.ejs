@@ -8,11 +8,13 @@
 </head>
 <body>
   <h1>List Book Per Author</h1>
+  <br>
   <table border="1">
     <thead>
       <th>TITLE</th>
       <th>GENRE</th>
       <th>RELEASE YEAR</th>
+      <th>ACTION</th>
     </thead>
     <tbody>
       <% result.Books.forEach((el) => { %>
@@ -20,6 +22,10 @@
           <td><%= el.title %> </td>
           <td><%= el.genre %> </td>
           <td><%= el.released_year %> </td>
+          <td>
+            <a href="/authors/<%= el.id %>/edit">EDIT</a>
+            <a href="/authors/<%= el.id %>/delete ">DELETE</a>
+          </td>
         </tr>
       <% }) %> 
     </tbody>

@@ -9,7 +9,8 @@ class Controller {
   }
 
   static registerPage(req, res) {
-    res.render('register-form')
+    let errors = req.query.errors
+    res.render('register-form', { errors })
   }
 
   static saveNewUser(req, res) {
@@ -19,17 +20,24 @@ class Controller {
         res.redirect('/login')
       })
       .catch(err => {
-        res.send(err)
+        if (err.name == 'SequelizeValidationError') {
+          err.errors.map((el) => {
+            return el.message
+          })
+          // res.send(err)
+          res.redirect(`/register?errors=${err}`)
+        }
+        
       })
   }
 
   static loginPage(req, res) {
-    let errors = req.query.error
+    let errors = req.query.errors
     res.render('login-form', { errors })
   }
 
   static postLogin(req, res) {
-    const error = 'Invalid Email/Password'
+    const errors = 'Invalid Email/Password'
     let { email, password } = req.body  
     User.findOne({
       where: {
@@ -43,16 +51,21 @@ class Controller {
             //set session di ctrler login
             req.session.UserId =  user.id
             req.session.role = user.role
-            res.redirect('/authors')
+            if (req.session.role == 'admin') {
+              res.redirect('/authors')
+            } else {
+              res.redirect('/books')
+            }
+            
           } else {
-            res.redirect(`/login?error=${error}`)
+            res.redirect(`/login?errors=${errors}`)
           }
         } else {
-          res.redirect(`/login?error=${error}`)
+          res.redirect(`/login?errors=${errors}`)
         }
       })
       .catch(err => {
-        res.send(err)
+        res.send(err)      
       })
   }
 
