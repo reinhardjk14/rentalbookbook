@@ -9,6 +9,8 @@
 <body>
   <a href="/">Home</a>
   <h1>List of Authors</h1>
+  <a href="/authors/add">Add New Author</a>
+  <br><br>
   <table border="1">
     <thead>
       <th>NAME</th>
@@ -20,7 +22,7 @@
         <tr>
           <td><%= el.fullName %> </td>
           <td><%= el.age %> </td>
-          <td><a href="">Books List</a></td>
+          <td><a href="/authors/<%= el.id %>">Books List</a></td>
         </tr>
       <% }) %> 
     </tbody>
