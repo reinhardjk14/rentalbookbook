@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <%- include('partial/head') %> 
+
+</head>
+<body>
+
+    <%- include('partial/navbar') %>
+
+  <h1>Books You Borrowed</h1>
+
+  <div class="this">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th>TITLE</th>
+        <th>GENRE</th>
+        <th>AUTHOR</th>
+        <th>RELEASE YEAR</th>
+        <th>ACTION</th>
+      </thead>
+      <tbody>
+        <% books.forEach((el) => { %>
+          <tr>
+            <td><%= el.title %> </td>
+            <td><%= el.genre %> </td>
+            <td><%= el.Author.fullName %></td>
+            <td><%= el.released_year %> </td>
+            <td>
+              <a href="/books/return/<%= el.id %>" style="text-decoration: none; color: brown; background-color: antiquewhite;">RETURN</a>
+            </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+    <form action="/books/user" method="post">
+      <label for="">Nama</label>
+      <input type="text" name="name"><br>
+      <label for="">Email</label>
+      <input type="text" name="email">
+      <label for="">TOTAL BUKU YANG ANDA PINJAM ADALAH: <%= books.length %> </label>
+      <input type="text" disabled selected value="<%= +books.length * 10000 %> ">
+      <button onclick="{alert('Terima kasih, silahkan cek email anda')}" type="submit">Submit</button>
+    </form>
+    <%- include('partial/errors.ejs') %> 
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentalBookBook</title>
+</head>
+<body>
+  <a href="/authors">Back</a>
+  <h1>Add New Book</h1>
+  <form action="/authors/addBook" method="post">
+    <div>
+      <label for="">Title</label><br>
+      <input type="text" name="title">
+    </div>
+    <br>
+    <div>
+      <label for="">Author</label><br>
+      <select name="AuthorId" id="">
+        <option value="" disabled selected>--SELECT AUTHOR--</option>
+        <% result.forEach((el) => { %>
+          <option value="<%= el.id %> "><%= el.fullName %> </option>
+        <% }) %> 
+      </select>
+    </div>
+    <br>
+    <div>
+      <label for="">Genre</label><br>
+      <input type="text" name="genre">
+    </div>
+    <br>
+    <div>
+      <label for="">Release Year</label><br>
+      <input type="text" name="released_year">
+    </div>
+    <br>
+    <button type="submit">Add Book</button>
+  </form>
+  <%- include('partial/errors.ejs') %> 
+</body>
+</html>

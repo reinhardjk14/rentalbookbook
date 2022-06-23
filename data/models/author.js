@@ -19,9 +19,42 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Author.init({
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Nama depan tidak boleh kosong!'
+        },
+        notEmpty: {
+          msg: 'Silahkan masukkan nama depan pengarang!'
+        }
+      }
+    }, 
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Nama belakang tidak boleh kosong! Jika tidak ada, silahkan masukkan nama depan lagi.'
+        },
+        notEmpty: {
+          msg: 'Silahkan masukkan nama belakang pengarang! Jika tidak ada, silahkan masukkan nama depan lagi.'
+        }
+      }
+    }, 
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Umur tidak boleh kosong!'
+        },
+        notEmpty: {
+          msg: 'Silahkan masukkan umur pengarang!'
+        }
+      }
+    } 
   }, {
     sequelize,
     modelName: 'Author',

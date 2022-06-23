@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentalBookBook</title>
+</head>
+<body>
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <h1>Register New User</h1>
+  <form action="/register" method="post">
+    <div>
+      <label for="">EMAIL</label><br>
+      <input type="text" name="email">
+    </div>
+    <br>
+    <div>
+      <label for="">PASSWORD</label><br>
+      <input type="text" name="password">
+    </div>
+    <br>
+    <div>
+      <label for="">ROLE</label><br>
+      <select name="role" id="">
+        <option value="admin">admin</option>
+        <option value="regular">regular </option>
+      </select>
+    </div>
+    <br>
+    <button type="submit">REGISTER</button>
+  </form>
+  <%- include('partial/errors.ejs') %> 
+</body>
+</html>

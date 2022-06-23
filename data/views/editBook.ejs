@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentalBookBook</title>
+</head>
+<body>
+  <a href="/authors">cancel</a>
+  <h1>EDIT BOOK</h1>
+  <form action="/authors/<%= dataBook.id %>/edit" method="post">
+    <div>
+      <label for="">Title</label><br>
+      <input type="text" name="title" value="<%= dataBook.title %> ">
+    </div>
+    <br>
+    <div>
+      <label for="">Author</label><br>
+      <select name="AuthorId" id="">
+        <% dataAuthor.forEach((el) => { %>
+          <% if (el.id == dataBook.AuthorId) { %>
+            <option value="<%= dataBook.AuthorId %>" selected><%= dataBook.Author.fullName %> </option>
+          <% } else { %>
+            <option value="<%= el.id %> "><%= el.fullName %> </option>
+          <% } %> 
+        <% }) %> 
+      </select>
+    </div>
+    <br>
+    <div>
+      <label for="">Genre</label><br>
+      <input type="text" name="genre" value="<%= dataBook.genre %> ">
+    </div>
+    <br>
+    <div>
+      <label for="">Release Year</label><br>
+      <input type="number" name="released_year" value="<%= dataBook.released_year%>">
+    </div>
+    <br>
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>

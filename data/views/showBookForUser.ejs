@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partial/head') %> 
+</head>
+<body>
+  
+  <%- include('partial/navbar') %> 
+
+  <h1 style="text-align: center;">RentalBookBook</h1>
+  <h3>Our Book Collection</h3>
+
+  <div class="this">
+    <%- include('partial/searchbar') %> 
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th>TITLE</th>
+        <th>GENRE</th>
+        <th>AUTHOR</th>
+        <th>RELEASE YEAR</th>
+        <th>STATUS</th>
+        <th>ACTION</th>
+      </thead>
+      <tbody>
+        <% result.forEach((el) => { %>
+          <tr>
+            <td><%= el.title %> </td>
+            <td><%= el.genre %> </td>
+            <td><%= el.Author.fullName %> </a></td>
+            <td><%= el.released_year %> </td>
+            <td><%= el.status %></td> 
+            <td>
+              <% if(el.status === 'available') { %>
+              <a href="/books/borrow/<%= el.id %>" style="text-decoration: none; color: teal; background-color: aliceblue;">BORROW</a>
+              <% } else { %>
+              <a href="/books/return/<%= el.id %>" style="text-decoration: none; color: brown; background-color: antiquewhite;">RETURN</a>
+              <% } %> 
+            </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  </div>
+  
+</body>
+</html>
