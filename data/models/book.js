@@ -21,8 +21,16 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     genre: DataTypes.STRING,
     released_year: DataTypes.INTEGER,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    isBorrowed: DataTypes.BOOLEAN,
+    AuthorId: DataTypes.INTEGER
   }, {
+    hooks: {
+      beforeCreate(book, option) {
+        book.isBorrowed = false
+        book.status = `Availble`
+      }
+    },
     sequelize,
     modelName: 'Book',
   });

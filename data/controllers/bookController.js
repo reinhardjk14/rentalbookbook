@@ -8,13 +8,44 @@ class BookController {
       order: [['status', 'DESC']]
     })
       .then(result => {
-        // console.log(JSON.stringify(result, null, 2))
         res.render('listBook', { result })
-        // res.send(result)
       })
       .catch(err => {
         res.send(err)
       })
+  }
+
+  static borrowBook(req, res) {
+    const id = req.params.bookId
+
+    Book.update({ status: 'Borrowed!' }, {
+      where: {
+        id: +id
+      }
+    })
+    .then(books => {
+      res.redirect('/books')
+    })
+    .catch(err => {
+      res.send(err)
+    })
+
+  }
+
+  static returnBook(req, res) {
+    const id = req.params.bookId
+
+    Book.update({ status: 'Availble' }, {
+      where: {
+        id: +id
+      }
+    })
+    .then(books => {
+      res.redirect('/books')
+    })
+    .catch(err => {
+      res.send(err)
+    })
   }
 }
 
