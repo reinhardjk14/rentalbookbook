@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate(book, option) {
-        book.isBorrowed = false
         book.status = `Availble`
       }
     },

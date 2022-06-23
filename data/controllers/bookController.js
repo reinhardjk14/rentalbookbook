@@ -1,5 +1,6 @@
 "use strict"
 const { Book, Author } = require('../models');
+const { Op } = require('sequelize')
 
 class BookController {
   static getAllBook(req, res) {
@@ -42,6 +43,23 @@ class BookController {
     })
     .then(books => {
       res.redirect('/books')
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  }
+
+  static usersBook(req, res) {
+    Book.findAll({
+      where: {
+        status: {
+          [Op.eq]: 'Borrowed!'
+        }
+      },
+      include: Author
+    })
+    .then(books => {
+      res.render('userBooks', { books })
     })
     .catch(err => {
       res.send(err)
