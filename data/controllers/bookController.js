@@ -4,10 +4,21 @@ const { Op } = require('sequelize')
 
 class BookController {
   static getAllBook(req, res) {
-    Book.findAll({
+    const { search } = req.query
+
+    const options = {
       include: Author,
       order: [['status', 'DESC']]
-    })
+    }
+    console.log(options);
+
+    // if(search) {
+    //   options.where.title = {
+    //     [Op.iLike]: `%${search}%`
+    //   }
+    // }
+
+    Book.findAll(options)
       .then(result => {
         res.render('listBook', { result })
       })
