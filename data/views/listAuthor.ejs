@@ -11,23 +11,24 @@
 
   <h1>List of Authors</h1>
 
-  <%- include('partial/searchBar') %> 
-
-  <table class="table table-bordered">
-    <thead class="thead-light">
-      <th>NAME</th>
-      <th>AGE</th>
-      <th>LIST OF BOOKS</th>
-    </thead>
-    <tbody>
-      <% result.forEach((el) => { %>
-        <tr>
-          <td><%= el.fullName %> </td>
-          <td><%= el.age %> </td>
-          <td><a href="/authors/<%= el.id %>">Books List</a></td>
-        </tr>
-      <% }) %> 
-    </tbody>
-  </table>
+  <div class="this">
+    <%- include('partial/searchBar') %> 
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>LIST OF BOOKS</th>
+      </thead>
+      <tbody>
+        <% result.forEach((el) => { %>
+          <tr>
+            <td><%= el.fullName %> </td>
+            <td><%= el.age %> </td>
+            <td><a href="/authors/<%= el.id %>">Books List</a></td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

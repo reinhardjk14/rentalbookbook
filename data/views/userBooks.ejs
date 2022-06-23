@@ -11,29 +11,31 @@
 
   <h1>Books You Borrowed</h1>
 
-  <%- include('partial/searchBar') %> 
-
-  <table class="table table-bordered">
-    <thead class="thead-light">
-      <th>TITLE</th>
-      <th>GENRE</th>
-      <th>AUTHOR</th>
-      <th>RELEASE YEAR</th>
-      <th>ACTION</th>
-    </thead>
-    <tbody>
-      <% books.forEach((el) => { %>
-        <tr>
-          <td><%= el.title %> </td>
-          <td><%= el.genre %> </td>
-          <td><a href="/authors/<%= el.Author.id %>"><%= el.Author.fullName %> </a></td>
-          <td><%= el.released_year %> </td>
-          <td>
-            <a href="/books/return/<%= el.id %>" style="text-decoration: none; color: brown; background-color: antiquewhite;">RETURN</a>
-          </td>
-        </tr>
-      <% }) %> 
-    </tbody>
-  </table>
+  <div class="this">
+    <%- include('partial/searchBar') %> 
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th>TITLE</th>
+        <th>GENRE</th>
+        <th>AUTHOR</th>
+        <th>RELEASE YEAR</th>
+        <th>ACTION</th>
+      </thead>
+      <tbody>
+        <% books.forEach((el) => { %>
+          <tr>
+            <td><%= el.title %> </td>
+            <td><%= el.genre %> </td>
+            <td><a href="/authors/<%= el.Author.id %>"><%= el.Author.fullName %> </a></td>
+            <td><%= el.released_year %> </td>
+            <td>
+              <a href="/books/return/<%= el.id %>" style="text-decoration: none; color: brown; background-color: antiquewhite;">RETURN</a>
+            </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  </div>
+  
 </body>
 </html>
