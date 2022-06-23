@@ -1,6 +1,6 @@
 "use strict"
 const { Book, Author } = require('../models');
-
+  
 class BookController {
   static getAllBook(req, res) {
     let search = req.query.search
@@ -20,7 +20,7 @@ class BookController {
       include: Author
     })
       .then(result => {
-        console.log(JSON.stringify(result, null, 2))
+        // console.log(JSON.stringify(result, null, 2))
         dataBook = result
         return Author.findAll()
       })
