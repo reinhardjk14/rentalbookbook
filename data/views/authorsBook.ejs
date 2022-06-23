@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentalBookBook</title>
+</head>
+<body>
+  <a href="/">Home</a>
+  <h1>Books by <%= authors.first_name %> <%= authors.last_name %></h1>
+  <table border="1">
+    <thead>
+      <th>TITLE</th>
+      <th>GENRE</th>
+      <th>RELEASE YEAR</th>
+      <th>STATUS</th>
+      <th>ACTION</th>
+    </thead>
+    <tbody>
+      <% authors.Books.forEach(el => { %>
+        <tr>
+          <td><%= el.title %> </td>
+          <td><%= el.genre %> </td>
+          <td><%= el.released_year %> </td>
+          <td><%= el.isBorrowed %> </td> <!--MASIH NULL, HARUS DIBUAT HOOKS-NYA -->
+          <td>
+            <a href="" style="text-decoration: none; color: teal; background-color: aliceblue;">BORROW</a>
+            <a href="" style="text-decoration: none; color: brown; background-color: antiquewhite;">RETURN</a>
+          </td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</body>
+</html>
