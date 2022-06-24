@@ -16,6 +16,7 @@ const Controller = require('../controllers/bookController');
 router.get('/books/', Controller.showAllBooks )
 router.get('/books/borrow/:bookId', Controller.borrowBook)
 router.get('/books/return/:bookId', Controller.returnBook)
+router.get('/books/return-for-user/:bookId', Controller.returnBookForUser)
 router.get('/books/user', Controller.usersBook)
 router.post('/books/user' , Controller.sendEmail)
 

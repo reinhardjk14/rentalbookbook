@@ -18,7 +18,6 @@ router.get('/authors/add', Controller.addNewAuthorForm)
 router.post('/authors/add', Controller.saveNewAuthor)
 router.get('/authors/:id', Controller.getBookPerAuthor)
 
-
 router.get('/authors/:id/edit', Controller.editBook)
 router.post('/authors/:id/edit', Controller.saveEditedBook)
 router.get('/authors/:id/delete', Controller.deleteBook)

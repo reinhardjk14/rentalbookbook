@@ -48,6 +48,22 @@ class BookController {
     })
   }
 
+  static returnBookForUser(req, res) {
+    const id = req.params.bookId
+
+    Book.update({ status: 'Availble' }, {
+      where: {
+        id: +id
+      }
+    })
+    .then(books => {
+      res.redirect('/books/user')
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  }
+
   static usersBook(req, res) {
     let errors = req.query.errors
     Book.findAll({

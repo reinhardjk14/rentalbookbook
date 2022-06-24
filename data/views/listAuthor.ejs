@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RentalBookBook</title>
+  <%- include('partial/head') %>
 </head>
 <body>
-  <a href="/logout">Logout</a>
+  <%- include('partial/adminNavbar.ejs') %> 
   <h1>List of Authors</h1>
-  <a href="/authors/add">Add New Author</a>
-  <a href="/authors/addBook">Add New Book</a>
   <br><br>
-  <table border="1">
-    <thead>
-      <th>NAME</th>
-      <th>AGE</th>
-      <th>LIST OF BOOKS</th>
-    </thead>
-    <tbody>
-      <% result.forEach((el) => { %>
-        <tr>
-          <td><%= el.fullName %> </td>
-          <td><%= el.age %> </td>
-          <td><a href="/authors/<%= el.id %>">Books List</a></td>
-        </tr>
-      <% }) %> 
-    </tbody>
-  </table>
+  <div class="this">
+    <div style="margin-bottom: 10px;">
+      <a href="/authors/add"><button type="button" class="btn btn-primary">Add New Author</button></a>
+      <a href="/authors/addBook"><button type="button" class="btn btn-primary">Add New Book</button></a>
+    </div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>LIST OF BOOKS</th>
+      </thead>
+      <tbody>
+        <% result.forEach((el) => { %>
+          <tr>
+            <td><%= el.fullName %> </td>
+            <td><%= el.age %> </td>
+            <td><a href="/authors/<%= el.id %>">Books List</a></td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
